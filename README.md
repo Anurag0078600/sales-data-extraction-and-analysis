@@ -21,22 +21,27 @@ select count(*) from customers; --38
 
 select markets_code, markets_name, zone from markets;
 
-select count(markets_code) from markets;--17
+select count(markets_code) from markets;
+
 
 5. I checked if we ever served out of india , as there were 2 registered foreign locations in registered market places --> We had no transaction history for these locations (- Reached on the conclusion that those were registered incorrectly or the two USD entries those were made had been redirected towards the 'New York' those were done from Delhi NCR location, however no firm conclusion yet, need to put it as anomaly to further investigate if Sales team want to investigate it further).
 
 -- If we ever served paris and New York.
 
-select * from transactions where market_code = 'Mark097' or market_code = 'Mark999'; -- 0
+select * from transactions where market_code = 'Mark097' or market_code = 'Mark999'; 
 
 6. Checked the total sales from each market place and total sales throughout the business history--> we have done in total 98 Cr+ business till 2020.
 
 -- Checking the total amount earned by each market place.
 
 select sum(sales_amount) as total_sales, markets_name from transactions t join markets m on t.market_code = m.markets_code
-group by markets_name with rollup;  -- rollup gives grand total of the column (986565766)
+group by markets_name with rollup;  
 
-select distinct year(order_date) from transactions;-- 2017 to 2020
+-- rollup gives grand total of the column (986565766)
+
+select distinct year(order_date) from transactions;
+
+-- 2017 to 2020
 
 7. To get the sales data for particular year I created stored procedure so that we can get the sales information for every year without writing query even in future, and creating stored procedure views and indexes are one of the helpful tool to reduce the execution cost.
 

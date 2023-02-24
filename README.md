@@ -74,6 +74,29 @@ end //
 delimiter ;
 
 
+9. I deleted duplicate transactions from the transaction table .
+
+delete from transactions where length(currency) = 4 and currency like '%U%';
+
+delete from transactions where sales_amount = -1 and length(currency) = 4;
+
+
+10. To verify if there were any more duplicate entries present in the table I used concatinate function .
+
+select * from (select a.*, dense_rank()over(partition by uni) as unif from (select *, concat(product_code, customer_code, market_code,order_date,sales_qty, sales_amount) as uni from transactions) a)b
+where unif > 1;
+
+
+11. I update the USD in INR terms as per the given date of transaction by searching the USD value for the given particular date.
+
+update transactions set sales_amount = round((sales_amount * 63.9741)) where currency = 'USD' and order_date = '2017-11-20';
+
+update transactions set sales_amount = round((sales_amount * 64.0204)) where currency = 'USD' and order_date = '2017-11-22';
+
+
+12. I tried serching for the real value of Product 001 in same market place so that I could update the correct sales value however unable to find cost of Prod001 in the market place of 002 , so this need to be sent to sales team for verification.
+
+
 Final Analysis- Checked and found a yearly falling trend in the business till 2020.
 
 

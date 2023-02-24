@@ -1,7 +1,7 @@
 # sales-data-extraction-and-analysis
 Sales data analysis using mysql
 
-I got the data from one of the practice projects uploaded by codebasic (@dhaval Patel) I thankyou for making this kind of repositories, it made the learning very convenient .
+
 
 SALES DATA Insight....(2017 to 2020)
 

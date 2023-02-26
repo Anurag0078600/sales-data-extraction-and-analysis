@@ -97,7 +97,13 @@ update transactions set sales_amount = round((sales_amount * 64.0204)) where cur
 12. I tried serching for the real value of Product 001 in same market place so that I could update the correct sales value however unable to find cost of Prod001 in the market place of 002 , so this need to be sent to sales team for verification.
 
 
-Final Analysis- Checked and found a yearly falling trend in the business till 2020.
+Sales Data analysis using Power BI
+
+I created a view on Power BI , representing the total revenue, total quantity sales with yearly and monthly filter, and represented the top 5 customers on terms of revenue generation and top 5 market places in terms of revenue generations.
+
+* analysis --> electircalsara store is the leading customer and Delhi NCR remained leading market place throughtout years, however there was a fall seen after 2018 in the sales of the products , 2018 remained the best year in terms of sales.
+
+Final Analysis- Checked and found a yearly falling trend in the business after 2018 till 2020.
 
 
 
